@@ -243,3 +243,8 @@ footer.site-foot { border-top: 1px solid var(--line); padding-block: 36px; font-
   .reveal { transition: none !important; }
   .js .reveal:not(.in) { transform: none; opacity: 1; }
 }
+
+/* ベータ版の期間(10/31まで)と、11月からの正式版で出し分ける */
+.official-only { display: none !important; }
+.after-beta .official-only { display: flex !important; }
+.after-beta .beta-only { display: none !important; }
