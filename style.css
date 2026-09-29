@@ -145,8 +145,12 @@ a.card:hover { transform: translateY(-2px); border-color: var(--ai-a); }
 
 /* ランク(短く) */
 .rank-mini { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
-.rank-mini span { font-family: var(--latin); font-weight: 800; font-size: 13px; padding: 4px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--paper); color: var(--ink-soft); }
-.rank-mini span:last-child { background: var(--iris); color: #fff; border-color: transparent; }
+/* 冒険者ランクのバッジ(アプリと同じ色) */
+.rk { display: inline-flex; align-items: center; justify-content: center; min-width: 34px; font-family: var(--latin); font-weight: 800; font-size: 13px; padding: 4px 10px; border-radius: 99px; color: #fff; text-shadow: 0 1px 1px rgba(0,0,0,0.25); }
+.rk-g { background: #7d828c; } .rk-f { background: #6f8f5c; } .rk-e { background: #2f8f8a; } .rk-d { background: #2f6fd0; } .rk-c { background: #5b50cc; }
+.rk-b { background: #8e46c2; } .rk-a { background: #c93c3c; } .rk-s { background: linear-gradient(135deg, #f0a93a, #b8741a); }
+.rk-ss { background: linear-gradient(135deg, #3fc9c0, #5b8cff 55%, #9b6bff); } .rk-sss { background: linear-gradient(135deg, #ffb84d, #ff5fa8 45%, #7b6bff); }
+th .rk { font-size: 12px; min-width: 30px; padding: 3px 8px; }
 
 /* 料金 */
 .beta-box { margin-top: 26px; background: var(--ink); color: #fff; border-radius: 16px; padding: 20px 24px; }
@@ -248,3 +252,9 @@ footer.site-foot { border-top: 1px solid var(--line); padding-block: 36px; font-
 .official-only { display: none !important; }
 .after-beta .official-only { display: flex !important; }
 .after-beta .beta-only { display: none !important; }
+
+/* 紹介リンクで開かれた時の、紹介コードのお知らせ(画面の下に固定) */
+.ref-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: var(--ink, #1B1D2A); color: #fff; padding-block: 10px calc(10px + env(safe-area-inset-bottom, 0px)); font-size: 14px; }
+.ref-bar .wrap { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: space-between; }
+.ref-bar b { font-family: var(--latin); letter-spacing: 0.08em; font-size: 16px; }
+.ref-bar button { font: inherit; font-weight: 700; border: none; border-radius: 99px; padding: 6px 14px; background: #fff; color: #1B1D2A; cursor: pointer; }
