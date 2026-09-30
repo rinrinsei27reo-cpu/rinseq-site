@@ -42,6 +42,10 @@ img { max-width: 100%; }
 .reveal { transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.8s ease; }
 .js .reveal:not(.in) { transform: translateY(22px); opacity: 0.3; }
 
+/* 緊急メンテナンスのお知らせ(全ページの一番上) */
+.maint-bar { background: #FFF4E5; color: #5A3A00; border-bottom: 1px solid #F2C27A; font-size: 13px; line-height: 1.75; padding: 10px 16px; text-align: center; }
+.maint-bar b { color: #B3261E; margin-right: 6px; white-space: nowrap; }
+
 /* ヘッダー */
 .beta-bar { background: var(--ink); color: #fff; text-align: center; font-size: 12.5px; padding: 7px 16px; }
 .beta-bar b { background: var(--iris); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -258,3 +262,12 @@ footer.site-foot { border-top: 1px solid var(--line); padding-block: 36px; font-
 .ref-bar .wrap { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: space-between; }
 .ref-bar b { font-family: var(--latin); letter-spacing: 0.08em; font-size: 16px; }
 .ref-bar button { font: inherit; font-weight: 700; border: none; border-radius: 99px; padding: 6px 14px; background: #fff; color: #1B1D2A; cursor: pointer; }
+
+/* 30秒でわかるRINSEQ(紹介動画)。パソコンでは横長、スマホでは縦長を出す */
+.pr-video { max-width: 960px; margin: 20px auto 0; }
+.pr-video video { width: 100%; display: block; border-radius: 18px; background: #CFEFFF; box-shadow: 0 18px 50px rgba(20, 30, 60, 0.18); }
+.pr-video .pr-video-v { display: none; max-width: 400px; margin: 0 auto; }
+@media (max-width: 640px) {
+  .pr-video .pr-video-h { display: none; }
+  .pr-video .pr-video-v { display: block; }
+}
