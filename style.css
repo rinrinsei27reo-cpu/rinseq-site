@@ -42,6 +42,10 @@ img { max-width: 100%; }
 .reveal { transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.8s ease; }
 .js .reveal:not(.in) { transform: translateY(22px); opacity: 0.3; }
 
+/* 緊急メンテナンスのお知らせ(全ページの一番上) */
+.maint-bar { background: #FFF4E5; color: #5A3A00; border-bottom: 1px solid #F2C27A; font-size: 13px; line-height: 1.75; padding: 10px 16px; text-align: center; }
+.maint-bar b { color: #B3261E; margin-right: 6px; white-space: nowrap; }
+
 /* ヘッダー */
 .beta-bar { background: var(--ink); color: #fff; text-align: center; font-size: 12.5px; padding: 7px 16px; }
 .beta-bar b { background: var(--iris); -webkit-background-clip: text; background-clip: text; color: transparent; }
