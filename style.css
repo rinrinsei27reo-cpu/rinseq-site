@@ -42,10 +42,6 @@ img { max-width: 100%; }
 .reveal { transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.8s ease; }
 .js .reveal:not(.in) { transform: translateY(22px); opacity: 0.3; }
 
-/* 緊急メンテナンスのお知らせ(全ページの一番上) */
-.maint-bar { background: #FFF4E5; color: #5A3A00; border-bottom: 1px solid #F2C27A; font-size: 13px; line-height: 1.75; padding: 10px 16px; text-align: center; }
-.maint-bar b { color: #B3261E; margin-right: 6px; white-space: nowrap; }
-
 /* ヘッダー */
 .beta-bar { background: var(--ink); color: #fff; text-align: center; font-size: 12.5px; padding: 7px 16px; }
 .beta-bar b { background: var(--iris); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -161,8 +157,9 @@ th .rk { font-size: 12px; min-width: 30px; padding: 3px 8px; }
 .beta-box b { font-size: 17px; }
 .beta-box b span { background: var(--iris); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .beta-box p { font-size: 13px; opacity: 0.82; margin-top: 4px; }
-.plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
-@media (max-width: 880px) { .plans { grid-template-columns: minmax(0, 1fr); } }
+.plans { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+@media (max-width: 1080px) { .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .plans { grid-template-columns: minmax(0, 1fr); } }
 .plan { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: grid; gap: 10px; align-content: start; }
 .plan-tag { font-family: var(--latin); font-weight: 800; font-size: 12.5px; color: var(--ai-a); letter-spacing: 0.1em; }
 .plan-name { font-weight: 700; font-size: 16px; }
@@ -171,6 +168,17 @@ th .rk { font-size: 12px; min-width: 30px; padding: 3px 8px; }
 .trial { justify-self: start; font-size: 11.5px; font-weight: 700; color: #fff; background: var(--iris); padding: 2px 10px; border-radius: 99px; }
 .plan ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; font-size: 13.5px; }
 .plan li::before { content: "▸ "; color: var(--ai-a); }
+/* 料金ページ:AIに相談(RINSEQトークン) */
+.ai-price { margin-top: 22px; border-radius: 18px; padding: 24px; background: linear-gradient(var(--paper), var(--paper)) padding-box, var(--iris) border-box; border: 2px solid transparent; display: grid; gap: 16px; }
+.ai-price-head { display: grid; gap: 6px; }
+.ai-price-head h2 { margin: 0; font-size: 20px; }
+.ai-price-head p { margin: 0; font-size: 13.5px; color: var(--ink-soft); max-width: 70ch; }
+.ai-packs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 620px) { .ai-packs { grid-template-columns: minmax(0, 1fr); } }
+.ai-pack { border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 4px; font-size: 14px; background: var(--white); }
+.ai-pack .price { font-size: 28px; }
+.ai-pack small { color: var(--ink-soft); font-size: 12px; }
+.ai-note { margin: 0; font-size: 12.5px; color: var(--ink-soft); }
 
 /* 記事ページ */
 .crumbs { font-size: 12px; color: var(--ink-soft); padding-top: 22px; }
@@ -271,3 +279,32 @@ footer.site-foot { border-top: 1px solid var(--line); padding-block: 36px; font-
   .pr-video .pr-video-h { display: none; }
   .pr-video .pr-video-v { display: block; }
 }
+
+/* トップ:AIで荒編集とRINSEQコイン(時短の一部として)。前からある「できること」の柱と同じカードの形・文字にそろえる */
+.ai-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 34px; }
+@media (max-width: 980px) { .ai-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .ai-flow { grid-template-columns: minmax(0, 1fr); } }
+.ai-step { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 24px 22px; display: grid; gap: 8px; align-content: start; position: relative; overflow: hidden; }
+.ai-step::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--iris); }
+.ai-step .k { font-family: var(--latin); font-weight: 800; font-size: 13px; color: var(--gold); letter-spacing: 0.1em; }
+.ai-step h3 { font-family: var(--serif); font-size: 18px; margin: 0; line-height: 1.5; }
+.ai-step p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.8; margin: 0; }
+.coin-box { margin-top: 18px; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 26px; display: grid; gap: 16px; position: relative; overflow: hidden; }
+.coin-box::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--ai-a)); }
+.coin-head { display: flex; gap: 16px; align-items: center; }
+.coin-mark { width: 52px; height: 52px; flex-shrink: 0; }
+.coin-head h3 { margin: 0 0 2px; font-family: var(--serif); font-size: 21px; }
+.coin-head p { margin: 0; font-size: 14px; color: var(--ink-soft); }
+.coin-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 880px) { .coin-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .coin-grid { grid-template-columns: minmax(0, 1fr); } }
+.coin-grid div { border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; gap: 2px; background: #F8F9FD; }
+.coin-grid b { font-family: var(--latin), var(--sans); font-weight: 800; font-size: 17px; font-variant-numeric: tabular-nums; }
+.coin-grid span { font-size: 12.5px; color: var(--ink-soft); }
+.coin-note { margin: 0; font-size: 12.5px; color: var(--ink-soft); }
+.coin-note a { color: var(--ai-a); font-weight: 700; text-decoration: none; }
+/* 一番上の「AIも使えます」の札 */
+.ai-chip { display: inline-flex; align-items: center; gap: 10px; margin: 18px 0 6px; padding: 7px 14px 7px 7px; border-radius: 99px; background: var(--paper); border: 1px solid var(--line); text-decoration: none; color: var(--ink); font-size: 13.5px; font-weight: 700; box-shadow: 0 8px 22px rgba(27,29,42,0.06); }
+.ai-chip b { font-family: var(--latin); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; color: #fff; background: var(--iris); border-radius: 99px; padding: 3px 10px; }
+.ai-chip:hover { border-color: var(--ai-a); }
+.ai-chip::after { content: "→"; color: var(--ai-a); }
