@@ -110,7 +110,15 @@
   function close() { m.hidden = true; document.body.style.overflow = ""; }
   document.querySelectorAll("[data-dl-guide]").forEach(function (a) {
     // ダウンロードはそのまま始め(リンクは新しいタブで開く)、同時にこの画面に開き方を出す
-    a.addEventListener("click", function () { open(a.getAttribute("data-dl-guide"), a.href); });
+    // 新しいタブで開くと説明が隠れてしまうため、ページはそのままで、見えない枠の中でダウンロードを始める
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      open(a.getAttribute("data-dl-guide"), a.href);
+      var f = document.createElement("iframe");
+      f.style.display = "none"; f.src = a.href;
+      document.body.appendChild(f);
+      setTimeout(function () { f.remove(); }, 120000);
+    });
   });
   m.querySelectorAll("[data-dlm-close]").forEach(function (b) { b.addEventListener("click", close); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !m.hidden) close(); });
