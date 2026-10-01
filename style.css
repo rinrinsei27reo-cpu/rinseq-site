@@ -312,3 +312,62 @@ footer.site-foot { border-top: 1px solid var(--line); padding-block: 36px; font-
 .ai-chip b { font-family: var(--latin); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; color: #fff; background: var(--iris); border-radius: 99px; padding: 3px 10px; }
 .ai-chip:hover { border-color: var(--ai-a); }
 .ai-chip::after { content: "→"; color: var(--ai-a); }
+
+/* ダウンロード後の「初めての開き方」(ベータ版の確認画面の案内) */
+.dlm[hidden] { display: none; }
+.dlm { position: fixed; inset: 0; z-index: 100; display: flex; align-items: flex-start; justify-content: center; padding: 24px 16px; overflow-y: auto; }
+.dlm-back { position: fixed; inset: 0; background: rgba(15,17,28,0.55); }
+.dlm-box { position: relative; width: 100%; max-width: 640px; background: var(--paper, #fff); color: var(--ink); border-radius: 14px; padding: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.dlm-box h3 { margin: 0 0 8px; font-size: 18px; }
+.dlm-box [hidden] { display: none; }
+.dlm-warn { margin: 0 0 12px; padding: 9px 12px; border: 1.5px solid #E8590C; background: #FFF4E6; color: #B3410C; border-radius: 8px; font-size: 13.5px; line-height: 1.7; font-weight: 700; }
+.dlm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dlm-grid figure { margin: 0; background: #fff; border: 1px solid var(--line, #ddd); border-radius: 10px; padding: 8px; }
+.dlm-grid figcaption { margin-top: 7px; font-size: 13px; line-height: 1.55; color: #222; }
+.dlm-grid figcaption b { display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: var(--ink); color: #fff; text-align: center; font-size: 12px; line-height: 20px; margin-right: 6px; }
+.dlm-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; gap: 10px; }
+.dlm-foot small { font-size: 12.5px; color: var(--ink-soft); }
+.dlm-foot button { border: 1.5px solid var(--ink); background: #fff; color: var(--ink); border-radius: 8px; padding: 7px 18px; font: inherit; font-weight: 700; cursor: pointer; }
+@media (max-width: 620px) { .dlm-grid { grid-template-columns: 1fr; } }
+/* 実際の画面に似せた絵 */
+.shot { position: relative; width: 260px; max-width: 100%; height: 170px; border-radius: 8px; overflow: hidden; font-family: -apple-system, "Hiragino Sans", "Segoe UI", "Yu Gothic UI", sans-serif; font-size: 10px; color: #222; background: #e9e9ec; margin: 0 auto; text-align: left; line-height: 1.4; }
+.shot .hl { position: absolute; border: 3px solid #E03131; border-radius: 7px; box-shadow: 0 0 0 3px rgba(224,49,49,0.25); pointer-events: none; }
+.shot-img { position: absolute; left: 50%; top: 4px; height: 162px; transform: translateX(-50%); border-radius: 10px; }
+.shot-done { position: absolute; left: 50%; transform: translateX(-50%); top: 138px; width: 146px; height: 18px; }
+.shot .mwin { position: absolute; inset: 10px; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.25); overflow: hidden; }
+.shot .mbar { height: 18px; background: #ececec; border-bottom: 1px solid #d6d6d6; display: flex; align-items: center; gap: 4px; padding-left: 7px; }
+.shot .mbar i { width: 7px; height: 7px; border-radius: 50%; background: #ff5f57; }
+.shot .mbar i + i { background: #febc2e; } .shot .mbar i + i + i { background: #28c840; }
+.shot .mbar b { margin: 0 auto; font-weight: 600; color: #555; font-size: 9.5px; transform: translateX(-14px); }
+.shot .app { position: absolute; text-align: center; font-size: 9.5px; width: 66px; }
+.shot .ic { width: 50px; height: 50px; margin: 0 auto 3px; border-radius: 12px; }
+.shot .rq { background: #15161a; color: #fff; font-weight: 800; font-size: 10px; display: flex; align-items: center; justify-content: center; }
+.shot .fold { background: linear-gradient(#7cc4fa, #3b9bf0); border-radius: 6px; position: relative; }
+.shot .fold::after { content: "A"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #d8eeff; font-weight: 900; font-size: 22px; }
+.shot .arrow { position: absolute; left: 96px; top: 68px; width: 64px; height: 3px; background: #555; }
+.shot .arrow::after { content: ""; position: absolute; right: -2px; top: -5px; border-left: 9px solid #555; border-top: 6.5px solid transparent; border-bottom: 6.5px solid transparent; }
+.shot .side { position: absolute; left: 0; top: 18px; bottom: 0; width: 128px; background: #f0f0f2; border-right: 1px solid #ddd; padding: 4px 0; }
+.shot .side div { padding: 3.5px 7px; display: flex; align-items: center; gap: 5px; font-size: 9px; white-space: nowrap; }
+.shot .side s { width: 11px; height: 11px; border-radius: 3px; background: #9aa; flex: none; }
+.shot .side .on { background: #d5e3fb; border-radius: 5px; margin: 0 3px; padding: 3.5px 4px; }
+.shot .side .on s { background: #4a8af4; }
+.shot .pane { position: absolute; left: 128px; right: 0; top: 18px; bottom: 0; padding: 8px 9px; }
+.shot .pane h6 { margin: 0 0 5px; font-size: 11px; }
+.shot .row { background: #f5f5f7; border-radius: 6px; padding: 6px 7px; line-height: 1.45; font-size: 8.8px; }
+.shot .mbtn { display: inline-block; background: #fff; border: 1px solid #c8c8c8; border-radius: 5px; padding: 2px 8px; font-size: 9px; margin-top: 4px; }
+.shot .wwin { position: absolute; inset: 0; background: #f3f3f3; }
+.shot .dlpop { position: absolute; right: 8px; top: 8px; width: 200px; background: #fff; border-radius: 8px; box-shadow: 0 3px 12px rgba(0,0,0,0.25); padding: 8px; font-size: 9px; line-height: 1.45; }
+.shot .dlwarn { color: #b3261e; font-weight: 700; }
+.shot .wbtn { display: inline-block; border: 1px solid #bbb; border-radius: 4px; padding: 2px 9px; background: #fff; margin-top: 5px; margin-right: 4px; }
+.shot .dlkeep { margin-top: 4px; border: 1px solid #ddd; border-radius: 4px; padding: 3px 6px; background: #fafafa; }
+.shot .explorer { position: absolute; inset: 8px; background: #fff; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+.shot .explorer .t { height: 20px; border-bottom: 1px solid #e3e3e3; padding: 4px 8px; font-weight: 600; }
+.shot .explorer .f { display: flex; align-items: center; gap: 7px; padding: 6px 10px; }
+.shot .fname { display: inline-flex; align-items: center; gap: 7px; }
+.shot .exe { flex: none; width: 22px; height: 22px; border-radius: 4px; background: #15161a; color: #fff; font-size: 6px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.shot .ss { position: absolute; inset: 0; background: #2b579a; color: #fff; padding: 12px 14px; line-height: 1.5; }
+.shot .ss h5 { margin: 0 0 6px; font-size: 13px; font-weight: 400; color: #fff; }
+.shot .ss p { margin: 0; font-size: 8.6px; }
+.shot .ss u { display: inline-block; margin-top: 6px; font-size: 9px; }
+.shot .ss .bb { position: absolute; right: 10px; bottom: 10px; display: flex; gap: 6px; }
+.shot .ss .bb span { border: 1.5px solid #fff; padding: 3px 10px; font-size: 9px; }
