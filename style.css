@@ -371,3 +371,16 @@ footer.site-foot { border-top: 1px solid var(--line); padding-block: 36px; font-
 .shot .ss u { display: inline-block; margin-top: 6px; font-size: 9px; }
 .shot .ss .bb { position: absolute; right: 10px; bottom: 10px; display: flex; gap: 6px; }
 .shot .ss .bb span { border: 1.5px solid #fff; padding: 3px 10px; font-size: 9px; }
+
+/* 利用規約・プライバシーポリシー・特定商取引法に基づく表記 */
+.foot-legal { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 12.5px; }
+.foot-legal a { color: inherit; opacity: 0.85; text-decoration: none; }
+.foot-legal a:hover { opacity: 1; text-decoration: underline; }
+.legal-wrap { max-width: 860px; margin: 0 auto 60px; }
+.legal-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+.legal-tabs a { border: 1px solid var(--line); border-radius: 99px; padding: 6px 14px; font-size: 13px; font-weight: 700; color: var(--ink); text-decoration: none; background: var(--paper); }
+.legal-tabs a[aria-current="page"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.prose.legal ol { padding-left: 1.4em; }
+.prose.legal li { margin: 0 0 8px; }
+.prose.legal th { text-align: left; white-space: nowrap; vertical-align: top; }
+.prose.legal th, .prose.legal td { border-bottom: 1px solid var(--line); padding: 10px 8px; }
