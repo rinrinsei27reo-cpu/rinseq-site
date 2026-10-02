@@ -114,6 +114,8 @@
     a.addEventListener("click", function (e) {
       e.preventDefault();
       open(a.getAttribute("data-dl-guide"), a.href);
+      // 管理者の「数字」ページ用に、ボタンが押された回数だけを数える(誰が押したかは送らない)
+      try { new Image().src = "https://rinseq-api.onrender.com/api/stats/hp-dl?os=" + a.getAttribute("data-dl-guide"); } catch (err) {}
       var f = document.createElement("iframe");
       f.style.display = "none"; f.src = a.href;
       document.body.appendChild(f);
