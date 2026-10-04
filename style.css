@@ -355,6 +355,13 @@ footer.site-foot { border-top: 1px solid var(--line); padding-block: 36px; font-
 .shot .pane h6 { margin: 0 0 5px; font-size: 11px; }
 .shot .row { background: #f5f5f7; border-radius: 6px; padding: 6px 7px; line-height: 1.45; font-size: 8.8px; }
 .shot .mbtn { display: inline-block; background: #fff; border: 1px solid #c8c8c8; border-radius: 5px; padding: 2px 8px; font-size: 9px; margin-top: 4px; }
+.dlm-warn.ok { border-color: #2B8A3E; background: #EBFBEE; color: #1E6B30; }
+.shot .malert { position: absolute; left: 50%; top: 6px; transform: translateX(-50%); width: 168px; background: #ececec; border-radius: 10px; box-shadow: 0 3px 14px rgba(0,0,0,0.3); padding: 9px 10px 8px; text-align: center; }
+.shot .malert .ic { width: 30px; height: 30px; border-radius: 7px; font-size: 6.5px; margin: 0 auto 5px; }
+.shot .malert h5 { margin: 0 0 4px; font-size: 8.4px; line-height: 1.4; font-weight: 700; }
+.shot .malert p { margin: 0 0 7px; font-size: 7.6px; line-height: 1.4; color: #444; }
+.shot .malert .mab { display: flex; gap: 5px; }
+.shot .malert .mab span { flex: 1; background: #fff; border: 1px solid #c8c8c8; border-radius: 5px; padding: 3px 0; font-size: 8.6px; }
 .shot .wwin { position: absolute; inset: 0; background: #f3f3f3; }
 .shot .dlpop { position: absolute; right: 8px; top: 8px; width: 200px; background: #fff; border-radius: 8px; box-shadow: 0 3px 12px rgba(0,0,0,0.25); padding: 8px; font-size: 9px; line-height: 1.45; }
 .shot .dlwarn { color: #b3261e; font-weight: 700; }
