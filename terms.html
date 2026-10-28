@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;500;700;800&family=Outfit:wght@500;700;800&family=JetBrains+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="style.css?v=9cbc93eb">
+<link rel="stylesheet" href="style.css?v=cdd62e81">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BT65KMFPPY"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-BT65KMFPPY");</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://rinseq.com/"}, {"@type": "ListItem", "position": 2, "name": "利用規約", "item": "https://rinseq.com/terms.html"}]}</script>
@@ -38,7 +38,7 @@
 <div class="wrap page-head">
   <div class="eyebrow">LEGAL</div>
   <h1>利用規約</h1>
-  <p class="lead">制定日:2026年10月1日</p>
+  <p class="lead">制定日:2026年10月1日<br>改定日:2026年11月1日</p>
 </div>
 <div class="wrap legal-wrap">
   <nav class="legal-tabs" aria-label="規約類"><a href="terms.html" aria-current="page">利用規約</a><a href="privacy.html">プライバシーポリシー</a><a href="tokushoho.html">特定商取引法に基づく表記</a></nav>
@@ -76,7 +76,7 @@
 
     <h3>第4条の2(RINSEQコイン)</h3>
     <ol>
-      <li>「RINSEQコイン」(以下「コイン」)は、本サービスの「AIに相談」「AIで荒編集」「高精度の文字起こし」(プランに含まれる時間を使い切った後)等、AIを使う機能の利用料の支払いに使う、本サービス内だけの単位です。1コインは1円(税込)として販売します。</li>
+      <li>「RINSEQコイン」(以下「コイン」)は、本サービスの「AIに相談」「AIで荒編集」等、AIを使う機能の利用料の支払いに使う、本サービス内だけの単位です。1コインは1円(税込)として販売します。</li>
       <li>コインは、本サービス上で表示するパック(300コイン300円、1,000コイン1,000円、2,500コイン2,500円等)単位で、クレジットカードによる1回払いで購入できます。購入しても毎月の請求は発生しません。</li>
       <li>運営者は、新たにアカウントを登録した利用者に、無料のコインを10コイン付与します。運営者は、キャンペーン等で無料のコインを付与することがあります。</li>
       <li>コインは、各機能で実際に使った量に応じて差し引かれます。使う量の目安は機能を使う前に表示しますが、実際の量と異なる場合があります。無料のコインがある場合は、無料のコインから先に差し引きます。</li>
@@ -95,7 +95,7 @@
     <h3>第6条(利用者のコンテンツ)</h3>
     <ol>
       <li>利用者が本サービスで編集・作成した動画・画像・テキスト等(以下「利用者コンテンツ」)の著作権は、利用者または正当な権利者に帰属します。運営者が利用者コンテンツの権利を取得することはありません。</li>
-      <li>動画の編集・書き出しは、原則として利用者のパソコン内で行われ、動画ファイルが運営者のサーバーに保存されることはありません。ただし、高精度の文字起こしを使う場合は話している部分の音声データが、AIの機能を使う場合は利用者が選んだトラックの時間・文字(文字起こし・テロップ等)の情報が、外部のAIサービス(OpenAI社)に送信されます。映像そのものはAIの機能では送信しません。</li>
+      <li>動画の編集・書き出しは、原則として利用者のパソコン内で行われ、動画ファイルが運営者のサーバーに保存されることはありません。文字起こしも利用者のパソコン内で行い、音声データを外部に送信することはありません。AIの機能(「AIに相談」等)を使う場合に限り、利用者が選んだトラックの時間・文字(文字起こし・テロップ等)の情報が、外部のAIサービス(OpenAI社)に送信されます。映像・音声そのものはAIの機能でも送信しません。</li>
       <li>利用者は、第三者の著作権・肖像権その他の権利を侵害する素材を使用しないものとし、自己の責任で必要な許諾を得るものとします。</li>
     </ol>
 
@@ -205,6 +205,7 @@
   <div class="wrap">
     <span>紹介コード <b data-ref-code></b> — アプリの登録画面で入力すると、有料プランの2か月目の月会費が割引になります(プロクリエイター2,000円・クリエイター1,000円)。</span>
     <button type="button" data-ref-copy>コードをコピー</button>
+    <button type="button" class="ref-appstore" data-ref-appstore data-url="" hidden>コードをコピーしてApp Storeで入手</button>
   </div>
 </div>
 <script>
@@ -223,6 +224,17 @@
     bar.querySelector("[data-ref-copy]").addEventListener("click", async (e) => {
       try { await navigator.clipboard.writeText(code); e.target.textContent = "コピーしました"; } catch (err) { e.target.textContent = code; }
     });
+    // iPhone・iPadで開いた人には、紹介コードをコピーしてそのままApp Storeへ進むボタンを出す
+    const ios = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    const ab = bar.querySelector("[data-ref-appstore]");
+    if (ios) {
+      ab.hidden = false;
+      if (!ab.dataset.url) { ab.textContent = "iPhone版 近日公開"; ab.disabled = true; }
+      else ab.addEventListener("click", async () => {
+        try { await navigator.clipboard.writeText(code); } catch (err) {}
+        location.href = ab.dataset.url;
+      });
+    }
     try {
       if (!sessionStorage.getItem("rinseq-ref-sent-" + code)) {
         new Image().src = "https://rinseq-api.onrender.com/api/referral/click?code=" + encodeURIComponent(code);

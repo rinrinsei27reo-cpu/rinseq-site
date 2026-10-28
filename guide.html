@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;500;700;800&family=Outfit:wght@500;700;800&family=JetBrains+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="style.css?v=9cbc93eb">
+<link rel="stylesheet" href="style.css?v=cdd62e81">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BT65KMFPPY"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-BT65KMFPPY");</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://rinseq.com/"}, {"@type": "ListItem", "position": 2, "name": "動画制作ガイド", "item": "https://rinseq.com/guide.html"}]}</script>
@@ -69,6 +69,7 @@
   <div class="wrap">
     <span>紹介コード <b data-ref-code></b> — アプリの登録画面で入力すると、有料プランの2か月目の月会費が割引になります(プロクリエイター2,000円・クリエイター1,000円)。</span>
     <button type="button" data-ref-copy>コードをコピー</button>
+    <button type="button" class="ref-appstore" data-ref-appstore data-url="" hidden>コードをコピーしてApp Storeで入手</button>
   </div>
 </div>
 <script>
@@ -87,6 +88,17 @@
     bar.querySelector("[data-ref-copy]").addEventListener("click", async (e) => {
       try { await navigator.clipboard.writeText(code); e.target.textContent = "コピーしました"; } catch (err) { e.target.textContent = code; }
     });
+    // iPhone・iPadで開いた人には、紹介コードをコピーしてそのままApp Storeへ進むボタンを出す
+    const ios = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    const ab = bar.querySelector("[data-ref-appstore]");
+    if (ios) {
+      ab.hidden = false;
+      if (!ab.dataset.url) { ab.textContent = "iPhone版 近日公開"; ab.disabled = true; }
+      else ab.addEventListener("click", async () => {
+        try { await navigator.clipboard.writeText(code); } catch (err) {}
+        location.href = ab.dataset.url;
+      });
+    }
     try {
       if (!sessionStorage.getItem("rinseq-ref-sent-" + code)) {
         new Image().src = "https://rinseq-api.onrender.com/api/referral/click?code=" + encodeURIComponent(code);
